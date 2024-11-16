@@ -1,0 +1,80 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CRUD de Frutas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Lista de frutas -->
+  <ion-list>
+    <ion-item *ngFor="let fruta of frutas">
+      <ion-label>
+        <h2>{{ fruta.nombre }}</h2>
+      </ion-label>
+      <ion-button (click)="eliminarFruta(fruta.id_fruta)" color="danger" fill="clear">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+      <ion-button (click)="cargarFrutaEnFormulario(fruta)" color="primary" fill="clear">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Formulario para agregar o actualizar fruta -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ esEdicion ? 'Editar Fruta' : 'Agregar Fruta' }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input [(ngModel)]="nueva_fruta.nombre" placeholder="Nombre de la fruta"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="guardarFruta()" color="success">
+        {{ esEdicion ? 'Guardar' : 'Agregar' }}
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+
+<!-- Viejo
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CRUD de Frutas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Lista de frutas -->
+  <!--<ion-list>
+    <ion-item *ngFor="let fruta of frutas">
+      <ion-label>
+        <h2>{{ fruta.nombre }}</h2>
+      </ion-label>
+      <ion-button (click)="eliminarFruta(fruta.id_fruta)" color="danger" fill="clear">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+      <ion-button (click)="actualizarFruta(fruta.id_fruta)" color="primary" fill="clear">
+        <ion-icon slot="icon-only" name="create"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Formulario para agregar nueva fruta -->
+  <!--<ion-card>
+    <ion-card-header>
+      <ion-card-title>Agregar Fruta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input [(ngModel)]="nueva_fruta.nombre" placeholder="Nombre de la fruta"></ion-input>
+      </ion-item>
+      <ion-button expand="block" (click)="agregarFruta()" color="success">Agregar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+-->
