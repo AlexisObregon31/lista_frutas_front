@@ -15,7 +15,7 @@ interface Fruta {
   providedIn: 'root'
 })
 export class FrutasService {
-  private apiUrl = 'http://192.168.0.141:3828/api/';
+  private apiUrl = 'http://localhost:3000/api/';
 
   constructor(private http: HttpClient) { } //private axios: Axios
 
